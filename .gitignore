@@ -2,7 +2,4 @@
 # Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs/CS-Course-Homeworks-Loskutova
-/.vs/ProjectSettings.json
-/.vs/slnx.sqlite
-/.vs/VSWorkspaceState.json
+.vs/
