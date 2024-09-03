@@ -1,5 +1,6 @@
 # CS-Course-Homeworks
 Лоскутова Мария, СП Б09
 
-![Uploading Task0.png…]()
+![alt text](https://github.com/minstradamuss/CS-Course-Homeworks/blob/hw1/Task0.png)
+
 
