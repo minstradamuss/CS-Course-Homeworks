@@ -1,4 +1,4 @@
-## CS-Course-Homeworks
+# CS-Course-Homeworks
 Лоскутова Мария, СП Б09
 
 # Task 0
