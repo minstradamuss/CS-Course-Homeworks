@@ -1,2 +1,2 @@
 # CS-Course-Homeworks
-Loskutova Mariia
+Лоскутова Мария, СП Б09
