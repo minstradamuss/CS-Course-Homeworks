@@ -1,14 +1,12 @@
 ﻿namespace HashNode
 {
-    public class HashNode<TKey, TValue>
+    public class HashNode<T>
     {
-        public TKey Key { get; set; }
-        public TValue Value { get; set; }
-        public HashNode<TKey, TValue> Next { get; set; }
+        public T Value { get; set; }
+        public HashNode<T>? Next { get; set; }
 
-        public HashNode(TKey key, TValue value)
+        public HashNode(T value)
         {
-            Key = key;
             Value = value;
             Next = null;
         }

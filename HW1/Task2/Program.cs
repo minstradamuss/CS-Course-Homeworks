@@ -1,23 +1,7 @@
-﻿using System;
-using System.Linq;
-using System.Text;
-
-class Program
+﻿class Program
 {
     static void Main()
     {
-        string password = GeneratePassword();
-        Console.WriteLine($"Generated Password: {password}");
-
-        string password2 = GeneratePassword();
-        Console.WriteLine($"Generated Password: {password2}");
-
-        string password3 = GeneratePassword();
-        Console.WriteLine($"Generated Password: {password3}");
-
-        string password4 = GeneratePassword();
-        Console.WriteLine($"Generated Password: {password4}");
-
         string password5 = GeneratePassword();
         Console.WriteLine($"Generated Password: {password5}");
     }
@@ -46,9 +30,7 @@ class Program
                                                .ToArray();
 
         while (!IsValidPassword(passwordChars))
-        {
             passwordChars = passwordChars.OrderBy(x => random.Next()).ToArray();
-        }
 
         return new string(passwordChars);
     }

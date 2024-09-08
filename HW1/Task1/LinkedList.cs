@@ -2,20 +2,20 @@
 
 namespace LinkedList
 {
-    public class LinkedList<TKey, TValue>
+    public class LinkedList<T>
     {
-        private HashNode<TKey, TValue> head;
+        private HashNode<T>? head;
 
-        public void Add(TKey key, TValue value)
+        public void Add(T value)
         {
-            HashNode<TKey, TValue> newNode = new HashNode<TKey, TValue>(key, value);
+            HashNode<T> newNode = new HashNode<T>(value);
             if (head == null)
             {
                 head = newNode;
             }
             else
             {
-                HashNode<TKey, TValue> current = head;
+                HashNode<T> current = head;
                 while (current.Next != null)
                 {
                     current = current.Next;
@@ -24,14 +24,14 @@ namespace LinkedList
             }
         }
 
-        public bool Remove(TKey key)
+        public bool Remove(T value)
         {
-            HashNode<TKey, TValue> current = head;
-            HashNode<TKey, TValue> previous = null;
+            HashNode<T>? current = head;
+            HashNode<T>? previous = null;
 
             while (current != null)
             {
-                if (current.Key.Equals(key))
+                if (current.Value.Equals(value))
                 {
                     if (previous == null)
                     {
@@ -49,26 +49,26 @@ namespace LinkedList
             return false;
         }
 
-        public TValue Get(TKey key)
+        public T Get(T value)
         {
-            HashNode<TKey, TValue> current = head;
+            HashNode<T>? current = head;
             while (current != null)
             {
-                if (current.Key.Equals(key))
+                if (current.Value.Equals(value))
                 {
                     return current.Value;
                 }
                 current = current.Next;
             }
-            throw new KeyNotFoundException($"Key '{key}' not found.");
+            throw new KeyNotFoundException($"Value '{value}' not found.");
         }
 
-        public bool ContainsKey(TKey key)
+        public bool Contains(T value)
         {
-            HashNode<TKey, TValue> current = head;
+            HashNode<T>? current = head;
             while (current != null)
             {
-                if (current.Key.Equals(key))
+                if (current.Value.Equals(value))
                 {
                     return true;
                 }

@@ -2,54 +2,58 @@
 
 namespace HashTable
 {
-    public class HashTable<TKey, TValue>
+    public class HashTable<T>
     {
         private readonly int capacity;
-        private readonly LinkedList<TKey, TValue>[] buckets;
+        private readonly LinkedList.LinkedList<T>[] buckets;
+
+        public HashTable() : this(10)
+        {
+        }
 
         public HashTable(int capacity)
         {
             this.capacity = capacity;
-            buckets = new LinkedList<TKey, TValue>[capacity];
+            buckets = new LinkedList.LinkedList<T>[capacity];
             for (int i = 0; i < capacity; i++)
             {
-                buckets[i] = new LinkedList<TKey, TValue>();
+                buckets[i] = new LinkedList.LinkedList<T>();
             }
         }
 
-        private int GetBucketIndex(TKey key)
+        private int GetBucketIndex(T key)
         {
             int hash = key.GetHashCode();
             int index = hash % capacity;
             return Math.Abs(index);
         }
 
-        public void Add(TKey key, TValue value)
+        public void Add(T value)
         {
-            int index = GetBucketIndex(key);
-            if (buckets[index].ContainsKey(key))
+            int index = GetBucketIndex(value);
+            if (buckets[index].Contains(value))
             {
-                throw new ArgumentException("Key already exists.");
+                throw new ArgumentException("Value already exists.");
             }
-            buckets[index].Add(key, value);
+            buckets[index].Add(value);
         }
 
-        public bool Remove(TKey key)
+        public bool Remove(T value)
         {
-            int index = GetBucketIndex(key);
-            return buckets[index].Remove(key);
+            int index = GetBucketIndex(value);
+            return buckets[index].Remove(value);
         }
 
-        public TValue Get(TKey key)
+        public T Get(T value)
         {
-            int index = GetBucketIndex(key);
-            return buckets[index].Get(key);
+            int index = GetBucketIndex(value);
+            return buckets[index].Get(value);
         }
 
-        public bool ContainsKey(TKey key)
+        public bool Contains(T value)
         {
-            int index = GetBucketIndex(key);
-            return buckets[index].ContainsKey(key);
+            int index = GetBucketIndex(value);
+            return buckets[index].Contains(value);
         }
     }
 }
