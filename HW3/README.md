@@ -1,8 +1,7 @@
 # CS-Course-Homeworks
 Лоскутова Мария, СП Б09
 
-# Task 0
-![alt text](https://github.com/minstradamuss/CS-Course-Homeworks/blob/main/HW1/Task0.png)
+# Task 1
 
-# Task 1, 2, 3 в соответствующих папках
+# Task 2, 3, 4, 5 в соответствующих папках
 
