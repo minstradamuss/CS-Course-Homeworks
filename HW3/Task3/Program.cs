@@ -26,6 +26,7 @@
     public int CompareTo(Hamster other)
     {
         return other.GetValue().CompareTo(this.GetValue());
+    }
 
     public override string ToString()
     {
