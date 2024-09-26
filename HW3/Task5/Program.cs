@@ -2,7 +2,7 @@
 {
     static long LuckyTicket(int n)
     {
-        if (n % 2 != 0) throw new ArgumentException("n должно быть четным");
+        if (n % 2 != 0 || n < 2) return 0;
         int half = n / 2;
         int maxSum = 9 * half;
         long[] count = new long[maxSum + 1];
