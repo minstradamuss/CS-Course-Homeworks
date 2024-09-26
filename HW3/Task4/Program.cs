@@ -3,6 +3,10 @@
     public static string Simplify(string arg)
     {
         string[] parts = arg.Split('/');
+        if (parts.Length < 2 || parts[1] == "0")
+        {
+            return "Делить на 0 нельзя.";
+        }
         int numerator = int.Parse(parts[0]);
         int denominator = int.Parse(parts[1]);
         int gcd = GCD(numerator, denominator);
@@ -32,5 +36,6 @@
         Console.WriteLine(Simplify("10/11"));   
         Console.WriteLine(Simplify("100/400"));
         Console.WriteLine(Simplify("8/4"));
+        Console.WriteLine(Simplify("5/0"));
     }
 }
