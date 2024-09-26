@@ -24,10 +24,7 @@
         }
         long total = 0;
         for (int i = 0; i <= maxSum; i++)
-        {
             total += count[i] * count[i];
-        }
-
         return total;
     }
 

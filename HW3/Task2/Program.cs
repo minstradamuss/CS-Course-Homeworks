@@ -21,11 +21,11 @@ class MyClass : AbstractBase, IFirst, ISecond
     }
     void IFirst.Display()
     {
-        Console.WriteLine("Реализация из первого интерфейса");
+        Console.WriteLine("Реализация из 1 интерфейса");
     }
     void ISecond.Display()
     {
-        Console.WriteLine("Реализация из второго интерфейса");
+        Console.WriteLine("Реализация из 2 интерфейса");
     }
 }
 

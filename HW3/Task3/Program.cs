@@ -2,8 +2,8 @@
 {
     public string Color { get; set; }
     public string FurType { get; set; }
-    public double Weight { get; set; }  
-    public double Height { get; set; }  
+    public double Weight { get; set; }
+    public double Height { get; set; }
     public int Age { get; set; }
 
     public Hamster(string color, string furType, double weight, double height, int age)
@@ -19,7 +19,7 @@
     {
         double colorValue = Color.Length;
         double furTypeValue = FurType.Length;
-        // допустим такая формула
+        // допустим такая формула для подсчета "ценности"
         return colorValue + furTypeValue + Weight * 10 + Height + Age;
     }
 
@@ -58,4 +58,3 @@ public class Program
         hamsters.ForEach(Console.WriteLine);
     }
 }
-
