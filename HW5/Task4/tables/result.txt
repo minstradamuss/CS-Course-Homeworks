@@ -1,0 +1,4 @@
+A	w	p	1
+A	w	p	2
+B	x	q	3
+B	y	r	3
