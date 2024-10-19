@@ -1,4 +1,0 @@
-A	w	p
-B	x	q
-B	y	r
-C	z	s
