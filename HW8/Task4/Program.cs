@@ -97,6 +97,7 @@
         };
 
         Console.WriteLine(IsValidSudoku(board1));
+
         Console.WriteLine(IsValidSudoku(board2));
     }
 }
