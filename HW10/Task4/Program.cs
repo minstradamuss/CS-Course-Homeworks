@@ -1,6 +1,4 @@
-﻿using NUnit.Framework;
-using System.Collections.Concurrent;
-using System.Runtime.ExceptionServices;
+﻿using System.Collections.Concurrent;
 
 class MergeSorter
 {
