@@ -1,21 +1,56 @@
-﻿using System;
-using System.Threading;
-
-class Program
+﻿class MatrixMultiplication
 {
-    static int[,] A;
-    static int[,] B;
-    static int[,] C;
+    private static int[,] A, B, C;
+    private static int activeThreads;
     static int m, n, k;
-    static object lockObj = new object();
-    static int nextRow = 0, nextCol = 0;
-    static int activeThreads;
 
-    static void Main(string[] args)
+    static int i = 0;
+
+    static int currentColumn = 0;
+    static object lockk = new object();
+
+    static void Calc()
+    {
+        int row;
+        int col;
+        while (true)
+        {
+            lock (lockk)
+            {
+                if (i >= m)
+                    break;
+
+                row = i;
+                col = currentColumn;
+                currentColumn++;
+                if (currentColumn >= k)
+                {
+                    i++;
+                    currentColumn = 0;
+                }
+            }
+
+            if (row >= m)
+                break;
+
+            C[row, col] = 0;
+            for (int l = 0; l < n; l++)
+            {
+                C[row, col] += A[row, l] * B[l, col];
+            }
+        }
+    }
+
+    static void Main()
     {
         Console.WriteLine("Введите размеры матриц (m, n, k):");
+        Console.Write("m = ");
         m = int.Parse(Console.ReadLine());
+
+        Console.Write("n = ");
         n = int.Parse(Console.ReadLine());
+
+        Console.Write("k = ");
         k = int.Parse(Console.ReadLine());
 
         A = new int[m, n];
@@ -48,13 +83,12 @@ class Program
 
         Console.WriteLine("Введите количество потоков:");
         int p = int.Parse(Console.ReadLine());
-
         activeThreads = p;
 
         Thread[] threads = new Thread[p];
         for (int i = 0; i < p; i++)
         {
-            threads[i] = new Thread(CalculateElement);
+            threads[i] = new Thread(Calc);
             threads[i].Start();
         }
 
@@ -71,49 +105,6 @@ class Program
                 Console.Write(C[i, j] + " ");
             }
             Console.WriteLine();
-        }
-    }
-
-    static void CalculateElement()
-    {
-        while (true)
-        {
-            int row, col;
-
-            lock (lockObj)
-            {
-                if (nextRow >= m)
-                {
-                    activeThreads--;
-                    if (activeThreads == 0)
-                    {
-                        Console.WriteLine($"Поток {Thread.CurrentThread.ManagedThreadId} завершил работу.");
-                    }
-                    return;
-                }
-
-                row = nextRow;
-                col = nextCol;
-
-                nextCol++;
-                if (nextCol >= k)
-                {
-                    nextCol = 0;
-                    nextRow++;
-                }
-            }
-
-            int sum = 0;
-            for (int i = 0; i < n; i++)
-            {
-                sum += A[row, i] * B[i, col];
-            }
-
-            Thread.Sleep(100);
-
-            C[row, col] = sum;
-
-            Console.WriteLine($"Поток {Thread.CurrentThread.ManagedThreadId} вычислил элемент C[{row},{col}] = {sum}");
         }
     }
 }
