@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading;
-
-public class CMyBarrier : IDisposable
+﻿public class CMyBarrier : IDisposable
 {
     private readonly int _participantCount;
     private int _currentCount;
