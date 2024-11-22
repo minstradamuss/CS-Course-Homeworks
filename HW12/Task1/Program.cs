@@ -1,5 +1,4 @@
-﻿
-namespace FizzBuzzMultithreaded;
+﻿namespace FizzBuzzMultithreaded;
 public class FizzBuzz
 {
     private int n;

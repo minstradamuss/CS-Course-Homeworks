@@ -1,9 +1,9 @@
 ﻿class HungryChicks
 {
-    private static int F = 10; 
+    private static readonly int F = 10; 
     private static int portions = F; 
-    private static SemaphoreSlim foodSemaphore = new SemaphoreSlim(F, F);
-    private static object lockObj = new object(); 
+    private static readonly SemaphoreSlim foodSemaphore = new(F, F);
+    private static readonly object lockObj = new(); 
 
     static void Main()
     {
@@ -25,7 +25,7 @@
 
     static void ChickBehavior(int chickId)
     {
-        Random random = new Random();
+        Random random = new();
         while (true)
         {
             foodSemaphore.Wait();
