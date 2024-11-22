@@ -181,9 +181,9 @@ public class FizzBuzz
     }
 
 
-    static void Main2()
+    static void Main()
     {
-        FizzBuzz foo = new FizzBuzz(16);
+        FizzBuzz foo = new FizzBuzz(15);
         void printFizz()
         {
             Console.WriteLine("Fizz");
