@@ -13,5 +13,4 @@
         
         public Group Group { get; set; }
     }
-
 }
